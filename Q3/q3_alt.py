@@ -27,7 +27,7 @@ def run():
 
 
 start_time = time.time()
-run()
+for i in range(100): run()
 end_time = time.time()
 
 print("Total time: ", (end_time - start_time), "sec")
