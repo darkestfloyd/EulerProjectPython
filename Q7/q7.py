@@ -25,9 +25,9 @@ def get_next_prime(prev_prime):
             test_num += 1
 
 
-def run():
+def run(length=10001):
     prime_list = [2]
-    while len(prime_list) != 10001:
+    while len(prime_list) != length:
         prime_list.append(get_next_prime(prime_list[-1]))
     print(prime_list[-1])
     return
