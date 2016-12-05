@@ -9,7 +9,7 @@ prime_list = []
 
 
 def is_prime(num):
-    sqrt = int(num ** 0.5)
+    sqrt = int(num ** 0.5) + 1
     for i in range(2, sqrt):
         if num % i == 0:
             return False
@@ -27,7 +27,7 @@ def run():
 
 
 start_time = time.time()
-for i in range(100): run()
+run()
 end_time = time.time()
 
 print("Total time: ", (end_time - start_time), "sec")

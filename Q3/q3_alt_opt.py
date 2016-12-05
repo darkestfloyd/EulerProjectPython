@@ -11,7 +11,7 @@ prime_list = []
 
 def get_largest(num, prime_check=False):
     increment = 1
-    sqrt = int(num ** 0.5)
+    sqrt = int(num ** 0.5) + 1
     if num % 2 == 0:
         if prime_check:
             return False
