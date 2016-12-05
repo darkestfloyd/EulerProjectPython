@@ -6,8 +6,8 @@ import time
 print("Running", os.path.basename(__file__))
 
 
-def div_by(num, max):
-    for i in range(2, max + 1):
+def div_by(num, nmax):
+    for i in range(2, nmax + 1):
         if num % i != 0:
             return False
     return True
