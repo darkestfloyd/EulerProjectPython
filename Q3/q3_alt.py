@@ -10,15 +10,16 @@ prime_list = []
 
 def is_prime(num):
     sqrt = int(num ** 0.5) + 1
-    for i in range(2, sqrt):
+    if num % 2 == 0:
+        return False
+    for i in range(3, sqrt, 2):
         if num % i == 0:
             return False
     return True
 
 
-def run():
-    num = 600851475143
-    sqrt = int(num ** 0.5)
+def run(num=600851475143):
+    sqrt = int(num ** 0.5) + 1
     for i in range(2, sqrt):
         if num % i == 0 and i not in prime_list and is_prime(i):
             prime_list.append(i)
