@@ -5,7 +5,7 @@ import time
 
 print("Running", os.path.basename(__file__))
 
-prime_list = []
+prime_list = [2]
 
 
 def is_prime(num):
