@@ -1,12 +1,4 @@
-# Sieve of Eratosthenes implementation
-
-import os
-import time
-
-print("Running", os.path.basename(__file__))
-
-
-def run(num=2000000):
+def prep(num=1000000):
     primes = [1] * (num + 1)
     primes[0] = primes[1] = 0
     for i in range(1, num + 1):
@@ -17,12 +9,12 @@ def run(num=2000000):
     for i in range(num + 1):
         if primes[i] == 1:
             prime_sum += i
-    print(prime_sum)
-    return
+        primes[i] = prime_sum
+    return primes
 
 
-start_time = time.time()
-run()
-end_time = time.time()
-
-print("Total time: ", (end_time - start_time), "sec")
+t = int(input().strip())
+sums = prep()
+for counter in range(t):
+    n = int(input().strip())
+    print(sums[n])
