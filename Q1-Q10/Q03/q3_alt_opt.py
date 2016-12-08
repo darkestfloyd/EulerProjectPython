@@ -1,3 +1,9 @@
+import os
+import time
+
+print("Running", os.path.basename(__file__))
+
+
 def is_prime(num):
     sqrt = int(num ** 0.5) + 1
     if num % 2 == 0:
@@ -8,8 +14,7 @@ def is_prime(num):
     return True
 
 
-def run(num):
-    # 600851475143
+def run(num=600851475143):
     nmax = int(num ** 0.5) + 1
     while num % 2 == 0:
         num //= 2
@@ -23,7 +28,8 @@ def run(num):
     print(num)
 
 
-t = int(input().strip())
-for counter in range(t):
-    n = int(input().strip())
-    run(n)
+start_time = time.time()
+run()
+end_time = time.time()
+
+print("Total time: ", (end_time - start_time), "sec")
