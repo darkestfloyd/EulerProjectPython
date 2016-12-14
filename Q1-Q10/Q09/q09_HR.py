@@ -18,6 +18,3 @@ t = int(input().strip())
 for counter in range(t):
     n = int(input().strip())
     run(n)
-
-# for i in range(20, 3001):
-# run(3000)
