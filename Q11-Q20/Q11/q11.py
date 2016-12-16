@@ -33,10 +33,12 @@ def run():
     #     grid.append(grid_t)
     # print(grid[10] == grid[1])
     str_data = [str.split(' ') for str in data.strip().split('\n')]
+    grid = []
     for i in range(20):
         grid_t = str_data[i]
         grid_t_int = [int(x) for x in grid_t]
-        print(grid_t_int)
+        grid.append(grid_t_int)
+    print(grid)
     return
 
 
