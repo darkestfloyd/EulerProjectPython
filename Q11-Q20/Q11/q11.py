@@ -31,7 +31,14 @@ def run():
     grid = []
     for i in range(20):
         grid.append([int(x) for x in str_data[i]])
-    print(grid)
+    values = []
+    for i in range(17):
+        for j in range(17):
+            down = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j]
+            left = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3]
+            diag = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3]
+            values.append(max([down, left, diag]))
+    print(max(values))
     return
 
 
