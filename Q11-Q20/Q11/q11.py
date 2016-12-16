@@ -27,7 +27,7 @@ data = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\n" \
 
 
 def run():
-    str_data = [str.split(' ') for str in data.strip().split('\n')]
+    str_data = [temp_str.split(' ') for temp_str in data.strip().split('\n')]
     grid = []
     for i in range(20):
         grid.append([int(x) for x in str_data[i]])
