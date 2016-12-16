@@ -35,7 +35,8 @@ def run():
     str_data = [str.split(' ') for str in data.strip().split('\n')]
     for i in range(20):
         grid_t = str_data[i]
-        print(grid_t)
+        grid_t_int = [int(x) for x in grid_t]
+        print(grid_t_int)
     return
 
 
