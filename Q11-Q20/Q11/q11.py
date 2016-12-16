@@ -27,17 +27,10 @@ data = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\n" \
 
 
 def run():
-    # grid = []
-    # for grid_i in range(20):
-    #     grid_t = [int(grid_temp) for grid_temp in input.split('\n').split(' ')]
-    #     grid.append(grid_t)
-    # print(grid[10] == grid[1])
     str_data = [str.split(' ') for str in data.strip().split('\n')]
     grid = []
     for i in range(20):
-        grid_t = str_data[i]
-        grid_t_int = [int(x) for x in grid_t]
-        grid.append(grid_t_int)
+        grid.append([int(x) for x in str_data[i]])
     print(grid)
     return
 
