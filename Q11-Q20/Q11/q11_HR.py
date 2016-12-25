@@ -1,3 +1,5 @@
+import functools
+
 grid = []
 size = 20
 for grid_i in range(size):
@@ -9,20 +11,20 @@ for i in range(size):
         # print("\nrow", i, "col", j)
         if j < 17:
             # print("going right")
-            values.append(grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3])
+            values.append(functools.reduce(lambda a, b: a * b, [grid[i][j + k] for k in range(4)]))
             if i > 2:
                 # print("going right up")
-                values.append(grid[i][j] * grid[i - 1][j + 1] * grid[i - 2][j + 2] * grid[i - 3][j + 3])
+                values.append(functools.reduce(lambda a, b: a * b, [grid[i - k][j + k] for k in range(4)]))
         if i < 17:
             # print("going down")
-            values.append(grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j])
+            values.append(functools.reduce(lambda a, b: a * b, [grid[i + k][j] for k in range(4)]))
             if j > 2:
                 # print("going left down")
-                values.append(grid[i][j] * grid[i + 1][j - 1] * grid[i + 2][j - 2] * grid[i + 3][j - 3])
+                values.append(functools.reduce(lambda a, b: a * b, [grid[i + k][j - k] for k in range(4)]))
         if i < 17 and j < 17:
             # print("going right down")
-            values.append(grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3])
+            values.append(functools.reduce(lambda a, b: a * b, [grid[i + k][j + k] for k in range(4)]))
         if i > 2 and j > 2:
             # print("going left down")
-            values.append(grid[i][j] * grid[i - 1][j - 1] * grid[i - 2][j - 2] * grid[i - 3][j - 3])
+            values.append(functools.reduce(lambda a, b: a * b, [grid[i - k][j - k] for k in range(4)]))
 print(max(values))
