@@ -16,10 +16,8 @@ def run(count=500):
         n += 1
         divisors = {}
         triangle_number = n * (n + 1) // 2
-        # print(n, triangle_number)
-        sqrt = triangle_number // 2
         for i in prime_list:
-            if i > sqrt + 1:
+            if i > triangle_number + 1:
                 break
             divisor_count = 0
             temp = triangle_number
