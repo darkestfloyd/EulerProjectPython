@@ -1,4 +1,5 @@
-import functools
+# answer - 76576500
+
 import os
 import time
 
@@ -9,12 +10,16 @@ def run(count=500):
     n = 7
     while True:
         n += 1
-        upper = n * (n + 1) // 2
-        factors = set(functools.reduce(list.__add__,
-                                       ([i, upper // i] for i in range(1, int(n ** 0.5) + 1))))
-        print(n, len(factors))
-        if len(factors) > count:
-            print(upper)
+        divisors = 0
+        triangle_number = n * (n + 1) // 2
+        sqrt = int(triangle_number ** 0.5)
+        for i in range(1, sqrt + 1):
+            if triangle_number % i == 0:
+                divisors += 2
+        if sqrt ** 2 == triangle_number:
+            divisors -= 1
+        if divisors > count:
+            print(n, triangle_number)
             return
 
 
