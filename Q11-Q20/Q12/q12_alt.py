@@ -30,7 +30,7 @@ def run(count=500):
         total_divisors = 1
         for divisor in divisors:
             total_divisors *= (divisors[divisor] + 1)
-        if total_divisors > 500:
+        if total_divisors > count:
             print(triangle_number)
             return
 
