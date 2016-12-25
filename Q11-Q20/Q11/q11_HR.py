@@ -19,4 +19,10 @@ for i in range(size):
             if j > 2:
                 # print("going left down")
                 values.append(grid[i][j] * grid[i + 1][j - 1] * grid[i + 2][j - 2] * grid[i + 3][j - 3])
+        if i < 17 and j < 17:
+            # print("going right down")
+            values.append(grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3])
+        if i > 2 and j > 2:
+            # print("going left down")
+            values.append(grid[i][j] * grid[i - 1][j - 1] * grid[i - 2][j - 2] * grid[i - 3][j - 3])
 print(max(values))
