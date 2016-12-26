@@ -5,7 +5,7 @@ import time
 
 print("Running", os.path.basename(__file__))
 
-collatz_length = {1: 1}
+collatz_length = {1: 0}
 
 
 def get_collatz_length(n):
