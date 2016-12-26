@@ -1,3 +1,5 @@
+# answer - 837799
+
 import os
 import time
 
@@ -18,10 +20,10 @@ def get_collatz_length(n):
         return collatz_length[n]
 
 
-def run(limit=1e6):
+def run(limit=1000000):
     nmax = 0
     nval = 0
-    for n in range(1, int(limit)):
+    for n in range(1, limit + 1):
         test_num = get_collatz_length(n)
         if test_num > nmax:
             nmax = test_num
@@ -31,7 +33,7 @@ def run(limit=1e6):
 
 
 start_time = time.time()
-run(10)
+run()
 end_time = time.time()
 
 print("Total time: ", (end_time - start_time), "sec")
