@@ -1,8 +1,5 @@
-def run(n):
-    return
-
-
 t = int(input().strip())
+nsum = 0
 for counter in range(t):
-    n = int(input().strip())
-    run(n)
+    nsum += int(input().strip())
+print(str(nsum)[:10])
