@@ -16,6 +16,6 @@ def collatz_sequence(n):
     print(length)
 
 
-collatz_sequence(9663)
+collatz_sequence(int(5e6))
 # for i in range(1, r + 1):
 #     collatz_sequence(i)
