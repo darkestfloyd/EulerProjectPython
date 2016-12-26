@@ -23,7 +23,7 @@ def get_collatz_length(n):
 def run(limit=1000000):
     nmax = 0
     nval = 0
-    for n in range(1, limit + 1):
+    for n in range(1, limit + 1, 2):  # use steps of 2, as even numbers always have lesser length
         test_num = get_collatz_length(n)
         if test_num > nmax:
             nmax = test_num
