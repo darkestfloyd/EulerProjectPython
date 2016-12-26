@@ -33,7 +33,9 @@ def run(limit=1000000):
 
 
 start_time = time.time()
-run()
+for i in range(1, 20):
+    print(i, end=' ')
+    run(i)
 end_time = time.time()
 
 print("Total time: ", (end_time - start_time), "sec")

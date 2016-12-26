@@ -1,5 +1,4 @@
-r = 10
-collatz_array = [-1] * 2 * r
+r = 9663
 
 
 def collatz_sequence(n):
@@ -17,6 +16,6 @@ def collatz_sequence(n):
     print(length)
 
 
-collatz_array[0] = 1
-for i in range(1, r + 1):
-    collatz_sequence(i)
+collatz_sequence(9663)
+# for i in range(1, r + 1):
+#     collatz_sequence(i)
