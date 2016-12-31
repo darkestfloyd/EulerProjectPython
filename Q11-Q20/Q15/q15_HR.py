@@ -12,7 +12,7 @@ def run(n=20, m=20):
             else:
                 ip = mat[i + 1][j]
             mat[i][j] = ip + jp
-    print(mat[0][0])
+    print(int(mat[0][0] % (1e9 + 7)))
     return
 
 
