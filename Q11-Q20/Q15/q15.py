@@ -5,7 +5,7 @@ print("Running", os.path.basename(__file__))
 
 
 def run(n=20, m=20):
-    mat = [[0] * n] * m
+    mat = [[0 for x in range(m)] for y in range(n)]
     mat[n - 1][m - 1] = 1
     for i in range(n - 1, -1, -1):
         for j in range(m - 1, -1, -1):
@@ -23,7 +23,7 @@ def run(n=20, m=20):
 
 
 start_time = time.time()
-run()
+run(3, 2)
 end_time = time.time()
 
 print("Total time: ", (end_time - start_time), "sec")
