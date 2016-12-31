@@ -9,7 +9,6 @@ def run(n=20, m=20):
     mat[n - 1][m - 1] = 1
     for i in range(n - 1, -1, -1):
         for j in range(m - 1, -1, -1):
-            ip = jp = 0
             if j == m - 1:
                 jp = 1
             else:
