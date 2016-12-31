@@ -1,3 +1,5 @@
+# score - 20
+
 def run(n=20, m=20):
     mat = [[0 for x in range(m)] for y in range(n)]
     mat[n - 1][m - 1] = 1
