@@ -1,11 +1,3 @@
-# answer - 137846528820
-
-import os
-import time
-
-print("Running", os.path.basename(__file__))
-
-
 def run(n=20, m=20):
     mat = [[0 for x in range(m)] for y in range(n)]
     mat[n - 1][m - 1] = 1
@@ -24,8 +16,8 @@ def run(n=20, m=20):
     return
 
 
-start_time = time.time()
-run()
-end_time = time.time()
-
-print("Total time: ", (end_time - start_time), "sec")
+t = int(input().strip())
+for counter in range(t):
+    n, m = input().strip().split(' ')
+    n, m = [int(n), int(m)]
+    run(n, m)
