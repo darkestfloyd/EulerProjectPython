@@ -34,7 +34,15 @@ alphabets = {0: 'Zero',
              1000: 'Thousand'}
 
 
+def get_length(n):
+    return 1
+
+
 def run(n=1000):
+    sum_of_digits = 0
+    for i in range(1, n + 1):
+        sum_of_digits += get_length(i)
+    print(sum_of_digits)
     return
 
 
