@@ -35,7 +35,15 @@ alphabets = {0: 'Zero',
 
 
 def get_length(n):
-    return 1
+    print("for: ", n)
+    length = 0
+    temp_n = n
+    # TODO add logic for 10 to 20
+    while temp_n != 0:
+        digit = temp_n % 10
+        length += len(alphabets[digit])
+        temp_n //= 10
+    return length
 
 
 def run(n=1000):
@@ -47,7 +55,7 @@ def run(n=1000):
 
 
 start_time = time.time()
-run()
+run(5)
 end_time = time.time()
 
 print("Total time: ", (end_time - start_time), "sec")
