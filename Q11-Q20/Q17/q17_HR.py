@@ -1,3 +1,4 @@
+# score - 100
 # HR follows US English. No 'and' in words
 
 _0_in_words = 'Zero'
@@ -73,6 +74,8 @@ def run(n):
         n_in_words.extend(in_words(group))
         if scale_counter > 0:
             n_in_words.append(numeric_scale[scale_counter])
+    if len(n_in_words) == 0:
+        n_in_words.append(_0_in_words)
     print(*n_in_words)
     return
 
