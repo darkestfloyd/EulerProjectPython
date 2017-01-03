@@ -21,7 +21,8 @@ triangle = "75\n" \
 
 
 def run():
-    print(triangle)
+    triangle_array = [sub_triangle.split(' ') for sub_triangle in triangle.split('\n')]
+    print(triangle_array)
     return
 
 
