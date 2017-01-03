@@ -31,7 +31,11 @@ tens_scale = {
     70: 'Seventy',
     80: 'Eighty',
     90: 'Ninety'}
-numeric_scale = {}  # TODO add later according to code
+numeric_scale = {
+    4: 'Trillion',
+    3: 'Billion',
+    2: 'Million',
+    1: 'Thousand'}
 
 
 def in_words(n):
@@ -60,17 +64,16 @@ def run(n):
     # Split into groups of 3
     n_in_words = []
     grouped_n = format(n, ',').split(',')
-    print(grouped_n)
     scale_counter = len(grouped_n)  # for adding scale
     for group in grouped_n:
         group = int(group)
         scale_counter -= 1
         if group == 0:
             continue
-        n_in_words.append(in_words(group))
+        n_in_words.extend(in_words(group))
         if scale_counter > 0:
-            n_in_words.append('Scale needed')
-    print(n_in_words)
+            n_in_words.append(numeric_scale[scale_counter])
+    print(*n_in_words)
     return
 
 
