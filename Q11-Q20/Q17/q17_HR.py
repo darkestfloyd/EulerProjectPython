@@ -22,7 +22,7 @@ _1_to_19 = {
     16: 'Sixteen',
     17: 'Seventeen',
     18: 'Eighteen',
-    19: 'Nineteen'}
+    19: 'Nineteen'}  # for 1 to 19
 tens_scale = {
     20: 'Twenty',
     30: 'Thirty',
@@ -31,7 +31,11 @@ tens_scale = {
     60: 'Sixty',
     70: 'Seventy',
     80: 'Eighty',
-    90: 'Ninety'}
+    90: 'Ninety'}  # for multiples of 10
+
+# one trillion has 5 groups ['1', '000', '000', '000', '000']
+# the counter starts at (n - 1) where n is number of groups
+# according to counter, we can decide the group
 numeric_scale = {
     4: 'Trillion',
     3: 'Billion',
@@ -62,6 +66,7 @@ def in_words(n):
 
 
 def run(n):
+    """Prints the number passed in words. for 0 <= n <= 10^12"""
     # Split into groups of 3
     n_in_words = []
     grouped_n = format(n, ',').split(',')
@@ -69,14 +74,14 @@ def run(n):
     for group in grouped_n:
         group = int(group)
         scale_counter -= 1
-        if group == 0:
+        if group == 0:  # for groups of 0, like in 434000434 => ['434', '000', '434']
             continue
         n_in_words.extend(in_words(group))
-        if scale_counter > 0:
+        if scale_counter > 0:  # this adds the scale
             n_in_words.append(numeric_scale[scale_counter])
-    if len(n_in_words) == 0:
+    if len(n_in_words) == 0:  # for input 0
         n_in_words.append(_0_in_words)
-    print(*n_in_words)
+    print(*n_in_words)  # * unpacks list and prints content
     return
 
 
