@@ -1,10 +1,21 @@
+# answer - 648
+
+import functools
+import math
 import os
 import time
 
 print("Running", os.path.basename(__file__))
 
 
-def run():
+def run(n=100):
+    fact = str(math.factorial(n))
+    print(
+        functools.reduce(
+            lambda x, y: x + y,
+            [int(i) for i in fact]
+        )
+    )
     return
 
 
