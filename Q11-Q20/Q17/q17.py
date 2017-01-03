@@ -1,3 +1,4 @@
+# answer - 21124
 # PE follows British English. Add 'and' in words
 
 _0_in_words = 'Zero'
@@ -43,8 +44,9 @@ numeric_scale = {
     1: 'Thousand'}
 
 
-def in_words(n):
+def in_words(n, id):
     """This function returns the given number in words (for n < 1000)"""
+    and_flag = True if n > 100 else False
     words = []
     hundreds_digit = n // 100
     if hundreds_digit != 0:
@@ -53,6 +55,8 @@ def in_words(n):
         n %= 100
     if n == 0:  # for say 400
         return words
+    if and_flag and id == 0:
+        words.append(_and_)
     if n < 20:  # for say 412
         words.append(_1_to_19[n])
         return words
@@ -76,7 +80,7 @@ def get_length_of_word(n):
         scale_counter -= 1
         if group == 0:  # for groups of 0, like in 434000434 => ['434', '000', '434']
             continue
-        n_in_words.extend(in_words(group))
+        n_in_words.extend(in_words(group, scale_counter))
         if scale_counter > 0:  # this adds the scale
             n_in_words.append(numeric_scale[scale_counter])
     if len(n_in_words) == 0:  # for input 0
@@ -85,8 +89,7 @@ def get_length_of_word(n):
     return len("".join(n_in_words))
 
 
-# sum_of_letters = 0
-# for i in range(1, 1001):
-#     sum_of_letters += get_length_of_word(i)
-# print(sum_of_letters)
-print(get_length_of_word(100))
+sum_of_letters = 0
+for i in range(1, 1001):
+    sum_of_letters += get_length_of_word(i)
+print(sum_of_letters)
