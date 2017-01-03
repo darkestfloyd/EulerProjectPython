@@ -3,11 +3,11 @@ import math
 
 
 def run(n=100):
-    fact = str(math.factorial(n))
+    """Returns the sum of the digits in factorial of a number"""
     print(
         functools.reduce(
             lambda x, y: x + y,
-            [int(i) for i in fact]
+            [int(i) for i in str(math.factorial(n))]
         )
     )
     return
