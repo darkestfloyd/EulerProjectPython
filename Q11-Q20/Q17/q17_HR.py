@@ -35,6 +35,7 @@ numeric_scale = {}  # TODO add later according to code
 
 
 def in_words(n):
+    """This function returns the given number in words (for n < 1000)"""
     words = []
     hundreds_digit = n // 100
     if hundreds_digit != 0:
@@ -57,8 +58,15 @@ def in_words(n):
 
 def run(n):
     # Split into groups of 3
+    n_in_words = []
     grouped_n = format(n, ',').split(',')
-    print(grouped_n)
+    scale_counter = 0  # for adding scale
+    for group in grouped_n:
+        scale_counter += 1
+        if group == 0:
+            continue
+        n_in_words.append(in_words(group))
+    print(n_in_words)
     return
 
 
