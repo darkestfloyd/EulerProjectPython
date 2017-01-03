@@ -21,7 +21,10 @@ triangle = "75\n" \
 
 
 def run(n=15):
-    triangle_array = [sub_triangle.split(' ') for sub_triangle in triangle.split('\n')]
+    triangle_array = []
+    sub_triangle = triangle.split('\n')
+    for i in range(n):
+        triangle_array.append([int(x) for x in sub_triangle[i].split(' ')])
     for i in range(n - 1, -1, -1):
         for j in range(i):
             print(triangle_array[i][j], end=' ')
