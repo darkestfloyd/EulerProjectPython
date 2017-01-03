@@ -1,3 +1,5 @@
+# answer - 1074
+
 import os
 import time
 
@@ -22,13 +24,13 @@ triangle = "75\n" \
 
 def run(n=15):
     triangle_array = []
-    sub_triangle = triangle.split('\n')
-    for i in range(n):
-        triangle_array.append([int(x) for x in sub_triangle[i].split(' ')])
-    for i in range(n - 1, -1, -1):
-        for j in range(i):
-            print(triangle_array[i][j], end=' ')
-        print()
+    sub_triangle = triangle.strip().split('\n')
+    for l in range(n):
+        triangle_array.append([int(x) for x in sub_triangle[l].split(' ')])
+    for i in range(n - 2, -1, -1):
+        for j in range(i + 1):
+            triangle_array[i][j] += max(triangle_array[i + 1][j], triangle_array[i + 1][j + 1])
+    print(triangle_array[0][0])
     return
 
 
