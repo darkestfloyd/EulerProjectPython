@@ -1,15 +1,16 @@
 # HR accepted! Score - 100
 
+
 def get_max_path(triangle):
     """This function returns the path with max sum"""
     triangle_array = []
     sub_triangle = triangle.strip().split('\n')
-    n = len(sub_triangle)
+    n = len(sub_triangle)  # get depth of triangle
     for l in range(n):
         triangle_array.append([int(x) for x in sub_triangle[l].split(' ')])
     for i in range(n - 2, -1, -1):
         for j in range(i + 1):
-            triangle_array[i][j] += max(triangle_array[i + 1][j], triangle_array[i + 1][j + 1])
+            triangle_array[i][j] += max(triangle_array[i + 1][j], triangle_array[i + 1][j + 1])  # the DP magic
     print(triangle_array[0][0])
     return
 
