@@ -10,7 +10,7 @@ def get_max_path(triangle):
         triangle_array.append([int(x) for x in sub_triangle[l].split(' ')])
     for i in range(n - 2, -1, -1):
         for j in range(i + 1):
-            triangle_array[i][j] += max(triangle_array[i + 1][j], triangle_array[i + 1][j + 1])  # the DP magic
+            triangle_array[i][j] += max(triangle_array[i + 1][j], triangle_array[i + 1][j + 1])  # the DP magicand
     print(triangle_array[0][0])
     return
 
