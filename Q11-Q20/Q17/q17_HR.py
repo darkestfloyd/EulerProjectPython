@@ -1,6 +1,7 @@
 # HR follows US English. No 'and' in words
 
 _0_in_words = 'Zero'
+_100_in_words = 'Hundred'
 _1_to_19 = {
     1: 'One',
     2: 'Two',
@@ -30,7 +31,7 @@ tens_scale = {
     70: 'Seventy',
     80: 'Eighty',
     90: 'Ninety'}
-numeric_scale = {100: 'Hundred'}  # TODO add later according to code
+numeric_scale = {}  # TODO add later according to code
 
 
 def in_words(n):
@@ -38,7 +39,7 @@ def in_words(n):
     hundreds_digit = n // 100
     if hundreds_digit != 0:
         words.append(_1_to_19[hundreds_digit])
-        words.append(numeric_scale[100])
+        words.append(_100_in_words)
         n %= 100
     if n == 0:
         return words
