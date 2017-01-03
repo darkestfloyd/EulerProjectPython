@@ -56,11 +56,12 @@ def in_words(n):
 
 
 def run(n):
+    grouped_n = format(n, ',').split(',')
+    print(grouped_n)
     return
 
 
 t = int(input().strip())
 for counter in range(t):
     n = int(input().strip())
-    # run(n)
-    print(in_words(n))
+    run(n)
