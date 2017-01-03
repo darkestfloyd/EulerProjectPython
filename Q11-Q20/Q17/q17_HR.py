@@ -41,21 +41,22 @@ def in_words(n):
         words.append(_1_to_19[hundreds_digit])
         words.append(_100_in_words)
         n %= 100
-    if n == 0:
+    if n == 0:  # for say 400
         return words
-    if n < 20:
+    if n < 20:  # for say 412
         words.append(_1_to_19[n])
         return words
     tens_digit = n // 10
     ones_digit = n % 10
     words.append(tens_scale[tens_digit * 10])
-    if ones_digit == 0:
+    if ones_digit == 0:  # for say 440
         return words
     words.append(_1_to_19[ones_digit])
     return words
 
 
 def run(n):
+    # Split into groups of 3
     grouped_n = format(n, ',').split(',')
     print(grouped_n)
     return
