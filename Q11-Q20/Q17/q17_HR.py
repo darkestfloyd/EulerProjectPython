@@ -60,12 +60,16 @@ def run(n):
     # Split into groups of 3
     n_in_words = []
     grouped_n = format(n, ',').split(',')
-    scale_counter = 0  # for adding scale
+    print(grouped_n)
+    scale_counter = len(grouped_n)  # for adding scale
     for group in grouped_n:
-        scale_counter += 1
+        group = int(group)
+        scale_counter -= 1
         if group == 0:
             continue
         n_in_words.append(in_words(group))
+        if scale_counter > 0:
+            n_in_words.append('Scale needed')
     print(n_in_words)
     return
 
