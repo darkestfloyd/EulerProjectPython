@@ -30,7 +30,28 @@ tens_scale = {
     70: 'Seventy',
     80: 'Eighty',
     90: 'Ninety'}
-numeric_scale = {}  # TODO add later according to code
+numeric_scale = {100: 'Hundred'}  # TODO add later according to code
+
+
+def in_words(n):
+    words = []
+    hundreds_digit = n // 100
+    if hundreds_digit != 0:
+        words.append(_1_to_19[hundreds_digit])
+        words.append(numeric_scale[100])
+        n %= 100
+    if n == 0:
+        return words
+    if n < 20:
+        words.append(_1_to_19[n])
+        return words
+    tens_digit = n // 10
+    ones_digit = n % 10
+    words.append(tens_scale[tens_digit * 10])
+    if ones_digit == 0:
+        return words
+    words.append(_1_to_19[ones_digit])
+    return words
 
 
 def run(n):
@@ -40,4 +61,5 @@ def run(n):
 t = int(input().strip())
 for counter in range(t):
     n = int(input().strip())
-    run(n)
+    # run(n)
+    print(in_words(n))
