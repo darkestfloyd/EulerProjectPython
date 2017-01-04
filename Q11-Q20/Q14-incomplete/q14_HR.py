@@ -44,10 +44,15 @@ for col in range(1, MAX):
     else:
         collatz[col] = 3 * col + 1
 collatz[1] = 1
-collatz_length[1] = 0
-get_collatz_length(int(5e6))
+collatz_length[1] = 1
+for i in range(2, MAX, 2):
+    get_collatz_length(int(5e6))
 
-# t = int(input().strip())
-# for counter in range(t):
-#     tt = int(input().strip())
-#     run(tt)
+t = int(input().strip())
+for counter in range(t):
+    tt = int(input().strip())
+    nmax = nval = 0
+    for xx in range(1, tt):
+        if collatz_length[xx] >= nmax:
+            nmax, nval = collatz_length[xx], xx
+    print(xx)
