@@ -1,4 +1,4 @@
-collatz_length_for_n = {16: 5}
+collatz_length_for_n = {1: 1}
 largest_collatz_length = {1: 1}
 
 
