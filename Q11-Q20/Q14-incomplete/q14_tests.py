@@ -1,4 +1,4 @@
-r = 9663
+r = 4
 
 
 def collatz_sequence(n):
@@ -13,9 +13,9 @@ def collatz_sequence(n):
             n //= 2
         else:
             n = (3 * n) + 1
-    print(length)
+    print("\n", length)
 
 
-collatz_sequence(int(5e6))
+collatz_sequence(r)
 # for i in range(1, r + 1):
 #     collatz_sequence(i)
