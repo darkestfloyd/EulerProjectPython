@@ -1,4 +1,4 @@
-r = 19
+r = 5
 
 
 def collatz_sequence(n):
