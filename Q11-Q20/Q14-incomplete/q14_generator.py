@@ -1,10 +1,12 @@
-collatz_length_for_n = {}
+collatz_length_for_n = {16: 5}
 largest_collatz_length = {1: 1}
 
 
 def collatz_length(n):
     length = 0
     while n != 1:
+        if n in collatz_length_for_n:
+            return collatz_length_for_n[n] + length
         length += 1
         if n % 2 == 0:
             n //= 2
@@ -26,6 +28,7 @@ def get_largest(upper):
     return 0
 
 
+# print(collatz_length(3))
 for x in range(2, int(5e6)):
     if x % 1000 == 0:
         print(x / int(5e6) * 100)

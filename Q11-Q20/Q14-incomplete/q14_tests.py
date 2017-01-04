@@ -1,4 +1,4 @@
-r = 4
+r = 3
 
 
 def collatz_sequence(n):
