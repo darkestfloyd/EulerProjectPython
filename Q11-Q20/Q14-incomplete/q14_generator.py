@@ -1,4 +1,4 @@
-MAX = 1000
+MAX = int(5e6)
 collatz = [-1] * MAX
 collatz_length = [-1] * MAX
 
