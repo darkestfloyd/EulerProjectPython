@@ -1,54 +1,66 @@
-collatz_length_for_n = {1: 1}
-largest_collatz_length = {1: 1}
+MAX = 10
+collatz = [-1] * MAX
+collatz_length = [-1] * MAX
 
 
-def collatz_length(n):
+def get_collatz_length(n):
     temp_n = n
-    length = 0
-    while n != 1:
-        if n in collatz_length_for_n:
-            collatz_length_for_n[temp_n] = collatz_length_for_n[n] + length
-            return collatz_length_for_n[temp_n]
+    length = -1
+    while True:
         length += 1
-        if n % 2 == 0:
-            n //= 2
+        if temp_n < MAX:
+            if collatz_length[temp_n] != -1:
+                collatz_length[n] = collatz_length[temp_n] + length
+                return collatz_length[n]
+            else:
+                temp_n = collatz[temp_n]
         else:
-            n = (3 * n) + 1
-    collatz_length_for_n[temp_n] = length + 1
-    return collatz_length_for_n[temp_n]
+            if temp_n % 2 == 0:
+                temp_n //= 2
+            else:
+                temp_n = 3 * temp_n + 1
 
 
-def get_largest(upper):
-    lower = largest_collatz_length[upper - 1]
-    nmax = 0
-    nval = 0
-    for i in range(lower, upper + 1):
-        test_num = collatz_length(i)
-        if test_num >= nmax:
-            nmax = test_num
-            nval = i
-    largest_collatz_length[upper] = nval
-    return 0
+file = open("q14_generated.py", 'w')
+file.close()
 
+print("Generating collatz")
+collatz[1] = 1
+for i in range(2, MAX):
+    if i % 2 == 0:
+        collatz[i] = i // 2
+    else:
+        collatz[i] = 3 * i + 1
+print("Done")
 
-# print(collatz_length(4))
-for x in range(2, int(5e6)):
-    if x % 1000 == 0:
-        print(x / int(5e6) * 100)
-    get_largest(x)
+collatz_length[1] = 1
+print("Generating lengths")
+for i in range(2, MAX):
+    collatz_length[i] = get_collatz_length(i)
+print("Done")
 
 file = open("q14_generated.py", 'a+')
 
-file.write('largest_collatz_length = {')
-for l in range(1, max(largest_collatz_length) + 1):
-    file.write(str(l) + ":" + str(largest_collatz_length[l]) + ", ")
+print("Writing collatz")
+file.write('collatz = [')
+for l in range(len(collatz)):
+    file.write(str(collatz[l]) + ', ')
+file.write(']')
+print("Done")
 
-file.write('}')
+file.write("\n")
+
+print("Writing lengths")
+file.write('collatz_length = [')
+for l in range(len(collatz_length)):
+    file.write(str(collatz_length[l]) + ', ')
+file.write(']')
+print("Done")
 
 file.write("\n\n")
 file.write("t = int(input().strip())\n")
 file.write("for counter in range(t):\n")
 file.write("    tt = int(input().strip())\n")
-file.write("    print(largest_collatz_length[tt])\n\n")
+file.write("    print(collatz_length[tt])\n\n")
 
 file.close()
