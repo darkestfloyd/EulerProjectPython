@@ -1,4 +1,4 @@
-MAX = 10
+MAX = 1000
 collatz = [-1] * MAX
 collatz_length = [-1] * MAX
 
@@ -61,6 +61,10 @@ file.write("\n\n")
 file.write("t = int(input().strip())\n")
 file.write("for counter in range(t):\n")
 file.write("    tt = int(input().strip())\n")
-file.write("    print(collatz_length[tt])\n\n")
+file.write("    nmax = nval = 0\n")
+file.write("    for xx in range(1, tt + 1):\n")
+file.write("        if collatz_length[xx] >= nmax:\n")
+file.write("            nmax, nval = collatz_length[xx], xx\n")
+file.write("    print(nval)\n")
 
 file.close()
