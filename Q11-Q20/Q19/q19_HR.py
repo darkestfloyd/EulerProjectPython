@@ -3,6 +3,10 @@
 
 def run(date_start=1, month_start=1, year_start=1901, date_end=1, month_end=1, year_end=2000):
     no_of_days = sunday = 0
+    for yr in range(1900, year_start):
+        if yr % 400 == 0 or (yr % 100 != 0 and yr % 4 == 0):
+            no_of_days += 1
+        no_of_days += 365
     for yr in range(year_start, year_end + 1):
         ys = ye = False
         if yr == year_start:
@@ -34,7 +38,12 @@ def run(date_start=1, month_start=1, year_start=1901, date_end=1, month_end=1, y
             #     if x == 1 and (no_of_days + x) % 7 == 0:
             #         print(x, month, yr)
 
-            if year_start <= yr <= year_end:
+            if year_start < yr < year_end:
+                if (no_of_days + 1) % 7 == 0:
+                    # print(1, month, yr)
+                    sunday += 1
+
+            if (ys and month_start <= month) or (ye and month <= month_end):
                 if (no_of_days + 1) % 7 == 0:
                     # print(1, month, yr)
                     sunday += 1
