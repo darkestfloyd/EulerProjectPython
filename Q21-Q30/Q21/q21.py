@@ -10,7 +10,8 @@ def sum_of_d(n):
     for x in range(2, sqrt + 1):
         if n % x == 0:
             nsum += x
-            nsum += n // x
+            if x != sqrt:
+                nsum += n // x
     return nsum + 1
 
 
