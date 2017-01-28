@@ -1,10 +1,12 @@
+# answer - 31626
+
 import os
 import time
 
 print("Running", os.path.basename(__file__))
 
 
-def sum_of_d(n):
+def sum_of_divisors(n):
     nsum = 0
     sqrt = int(n ** 0.5)
     for x in range(2, sqrt + 1):
@@ -16,26 +18,17 @@ def sum_of_d(n):
 
 
 def run(nmax=10000):
-    amicable_sum = 1
+    amicable_sum = 0
     num_flag = [-1] * nmax
-    for a in range(2, nmax):
-        if num_flag[a] != -1:
-            continue
-        b = sum_of_d(a)
+    for a in range(220, nmax):
+        b = sum_of_divisors(a)
         num_flag[a] = b
-        if b > nmax:
-            if a == sum_of_d(b):
-                amicable_sum += (a + b)
-            continue
-        if num_flag[b] == a:
-            amicable_sum += (a + b)
-            continue
-        if num_flag[b] != -1:
-            continue
-        c = sum_of_d(b)
-        num_flag[b] = c
-        if a == c:
-            amicable_sum += (a + b)
+        if b > a:
+            c = sum_of_divisors(b)
+            if c == a:
+                amicable_sum += a + b
+            if b <= nmax:
+                num_flag[b] = c
     print(amicable_sum)
     return
 
