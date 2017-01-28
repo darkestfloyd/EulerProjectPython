@@ -31,7 +31,8 @@ def run(nmax=10000):
 
 
 start_time = time.time()
-run()
+# run()
+print(sum_of_d(220))
 end_time = time.time()
 
 print("Total time: ", (end_time - start_time), "sec")
