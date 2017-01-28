@@ -19,18 +19,23 @@ def run(nmax=10000):
     amicable_sum = 1
     num_flag = [-1] * nmax
     for a in range(2, nmax):
-        if num_flag[a] != -1 and num_flag[num_flag[a]] == a:
+        if num_flag[a] != -1:
             continue
         b = sum_of_d(a)
         num_flag[a] = b
-        if b < nmax and num_flag[b] == a:
+        if b > nmax:
+            if a == sum_of_d(b):
+                amicable_sum += (a + b)
+            continue
+        if num_flag[b] == a:
             amicable_sum += (a + b)
             continue
-        if b < nmax and num_flag[b] != -1:
+        if num_flag[b] != -1:
             continue
-        if a == sum_of_d(b):
+        c = sum_of_d(b)
+        num_flag[b] = c
+        if a == c:
             amicable_sum += (a + b)
-            num_flag[b] = a
     print(amicable_sum)
     return
 
