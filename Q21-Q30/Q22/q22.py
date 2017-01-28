@@ -5,4 +5,6 @@ names = in_file \
     .replace('"', '') \
     .split(",")
 
-print(names[1])
+# Algo -
+# First merge sort the names
+# Then convert to number and multiply by the index
