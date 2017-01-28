@@ -1,2 +1,8 @@
 in_file = open("names.txt", 'r')
-print(in_file.read())
+
+names = in_file \
+    .read() \
+    .replace('"', '') \
+    .split(",")
+
+print(names[1])
