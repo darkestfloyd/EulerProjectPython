@@ -20,7 +20,6 @@ def run(nmax=10000):
     num_flag = [-1] * nmax
     for a in range(2, nmax):
         if num_flag[a] != -1 and num_flag[num_flag[a]] == a:
-            amicable_sum += num_flag[a] + num_flag[num_flag[a]]
             continue
         b = sum_of_d(a)
         num_flag[a] = b
