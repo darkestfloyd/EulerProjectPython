@@ -14,11 +14,12 @@ def run(date_start=1, month_start=1, year_start=1901, date_end=1, month_end=1, y
     for yr in range(year_start, year_end + 1):
         # print()
         sf = 1 if date_start > 1 else 0
-        ef = 0 if date_end == 1 else 1
-        if yr == year_start:
+        if yr == year_start == year_end:
+            months = (month_start, month_end + 1)
+        elif yr == year_start:
             months = range(month_start + sf, 13)
         elif yr == year_end:
-            months = range(1, month_end + ef)
+            months = range(1, month_end + 1)
         else:
             months = range(1, 13)
         months = [13 if x == 1 else x for x in months]
@@ -33,7 +34,10 @@ def run(date_start=1, month_start=1, year_start=1901, date_end=1, month_end=1, y
 
             h = (1 + x1 + K + K // 4 + J // 4 + 5 * J) % 7
             if h == 1:
-                # print(month, yr)
+                if month == 13 or month == 14:
+                    print(month % 12, yr - 1)
+                else:
+                    print(month, yr)
                 sundays += 1
 
     print(sundays)
