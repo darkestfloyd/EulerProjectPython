@@ -24,6 +24,7 @@ def run(nmax=10000):
         if a == sum_of_d(b):
             amicable_sum += (a + b)
             num_flag[b] = a
+    print(amicable_sum)
     return
 
 
