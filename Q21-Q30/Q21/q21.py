@@ -16,13 +16,19 @@ def sum_of_d(n):
 
 
 def run(nmax=10000):
-    amicable_sum = 0
+    amicable_sum = 1
     num_flag = [-1] * nmax
     for a in range(2, nmax):
-        if num_flag[a] != -1:
+        if num_flag[a] != -1 and num_flag[num_flag[a]] == a:
+            amicable_sum += num_flag[a] + num_flag[num_flag[a]]
             continue
         b = sum_of_d(a)
         num_flag[a] = b
+        if b < nmax and num_flag[b] == a:
+            amicable_sum += (a + b)
+            continue
+        if b < nmax and num_flag[b] != -1:
+            continue
         if a == sum_of_d(b):
             amicable_sum += (a + b)
             num_flag[b] = a
@@ -31,8 +37,7 @@ def run(nmax=10000):
 
 
 start_time = time.time()
-# run()
-print(sum_of_d(220))
+run()
 end_time = time.time()
 
 print("Total time: ", (end_time - start_time), "sec")
