@@ -6,11 +6,12 @@ print("Running", os.path.basename(__file__))
 
 def sum_of_d(n):
     nsum = 0
-    sqrt = n ** 0.5
-    for x in range(1, int(sqrt + 1)):
+    sqrt = int(n ** 0.5)
+    for x in range(2, sqrt + 1):
         if n % x == 0:
-            nsum += n
-    return nsum
+            nsum += x
+            nsum += n // x
+    return nsum + 1
 
 
 def run(nmax=10000):
