@@ -1,7 +1,6 @@
-def get_factor(n):
-    """Returns the factors of the number n"""
+def get_prime_factor(n, primes):
+    """Returns prime factors of the number n"""
 
-    primes = get_primes(n)
     factors = [1]
     sqrt = (n ** 0.5) + 1
     for prime in primes:
@@ -9,7 +8,27 @@ def get_factor(n):
             break
         if n % prime == 0:
             factors.append(prime)
-            factors.append(n // prime)
+
+    return factors
+
+
+def get_factors(n, with_1=True, with_upper=False):
+    """Return factors for number n"""
+
+    factors = []
+    sqrt = int(n ** 0.5)
+    steps = 2 if n % 2 == 1 else 1
+    for num in range(1, sqrt):
+        num += steps
+        if n % num == 0:
+            factors.append(num)
+            if num ** 2 != n:
+                factors.append(n // num)
+
+    if with_upper:
+        factors.append(n)
+    if with_1:
+        factors.append(1)
 
     return factors
 
