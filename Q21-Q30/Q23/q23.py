@@ -6,9 +6,9 @@
 from utils import sieve_of_eratosthenes
 
 MAX = 100  # No number over MAX is abundant
-abundant_array = [0] * MAX
+abundant_array = [12]
 
-primes = sieve_of_eratosthenes.get_primes(MAX)
+primes = sieve_of_eratosthenes.get_primes(MAX)  # Get all prime numbers under MAX (to calculate factors)
 
 
 def flip(position):
@@ -44,6 +44,10 @@ def is_abundant(n):
         return False
 
 
-flip(12)  # Because 12 is the smallest abundant number
+# flip(12)  # Because 12 is the smallest abundant number
 for i in range(13, MAX):
-    abundant_array[i] = 1 if is_abundant(i) else 0
+    if is_abundant(i):
+        abundant_array.append(i)
+
+# Add all abundant numbers
+print(abundant_array)
