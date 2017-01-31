@@ -5,16 +5,10 @@
 
 from utils import sieve_of_eratosthenes
 
-MAX = 100  # No number over MAX is abundant
+MAX = 28123  # No number over MAX is abundant
 abundant_array = [12]
-
+has_abundant_sum = [0] * MAX
 primes = sieve_of_eratosthenes.get_primes(MAX)  # Get all prime numbers under MAX (to calculate factors)
-
-
-def flip(position):
-    """This function flips the but in the abundant array"""
-    position -= 1
-    abundant_array[position] = 0 if abundant_array[position] else 1
 
 
 def get_factor(n):
@@ -38,16 +32,26 @@ def is_abundant(n):
 
     factors = get_factor(n)
     if sum(factors) > n:
-        print("sum of factors for", n, sum(factors))
+        # print("sum of factors for", n, sum(factors))
         return True
     else:
         return False
 
 
-# flip(12)  # Because 12 is the smallest abundant number
 for i in range(13, MAX):
     if is_abundant(i):
         abundant_array.append(i)
 
 # Add all abundant numbers
-print(abundant_array)
+has_abundant_sum[11] = 1  # Because 12 is the smallest abundant number
+s = len(abundant_array)
+for x in range(s + 1):
+    for y in range(x, s + 1):
+        has_abundant_sum[x + y - 1] = 1
+
+SUM = 0
+for x in range(len(has_abundant_sum)):
+    if has_abundant_sum[x] == 1:
+        SUM += x
+
+print(SUM)
