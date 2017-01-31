@@ -15,12 +15,14 @@ def flip(position):
 
 def get_factor(n):
     """Returns the factors of the number n"""
+
     return 1
 
 
 def is_abundant(n):
     """Checks if a number is abundant or deficient.
     Returns 1 for abundant and 0 for deficient"""
+    factors = get_factor(n)
     return True
 
 
