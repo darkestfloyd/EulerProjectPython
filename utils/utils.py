@@ -12,10 +12,10 @@ def get_prime_factor(n, primes):
     return factors
 
 
-def get_factors(n, with_1=True, with_upper=False):
+def get_factors(n, proper_divisors=False):
     """Return factors for number n"""
 
-    factors = []
+    factors = [1]
     sqrt = int(n ** 0.5)
     steps = 2 if n % 2 == 1 else 1
     for num in range(1, sqrt):
@@ -25,12 +25,10 @@ def get_factors(n, with_1=True, with_upper=False):
             if num ** 2 != n:
                 factors.append(n // num)
 
-    if with_upper:
+    if not proper_divisors:
         factors.append(n)
-    if with_1:
-        factors.append(1)
 
-    return factors
+    return sorted(factors)
 
 
 def get_primes(limit, return_type=1):
