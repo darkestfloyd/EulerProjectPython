@@ -1,3 +1,6 @@
+import math
+
+
 def get_prime_factor(n, primes):
     """Returns prime factors of the number n"""
 
@@ -31,25 +34,22 @@ def get_factors(n, proper_divisors=False):
     return sorted(factors)
 
 
-def get_primes(limit, return_type=1):
-    """Returns primes upto limit
-    return_type 1: return list of primes
-    return_type 2: return raw list with 1s & 0s"""
-    primes = [1] * (limit + 1)
+def prime_sieve(n, as_numbers=False):
+    """
+    Returns primes upto n
 
-    primes[0] = primes[1] = 0
-    sqrt = int(limit ** 0.5)
+    :param n: limit (generates primes till n)
+    :param as_numbers: if True, returns list of primes, else returns the sieve
+    """
+    sieve = [True] * (n + 1)
+    sieve[0] = sieve[1] = False
+    sqrt = int(math.sqrt(n))
     for num in range(2, sqrt + 1):
-        if primes[num] == 0:
-            continue
-        for x in range(num ** 2, limit + 1, num):
-            primes[x] = 0
+        if sieve[num]:
+            for num_pow in range(num ** 2, n + 1, num):
+                sieve[num_pow] = False
 
-    if return_type == 2:
-        return primes
-    prime_list = []
-    for index, prime in enumerate(primes):
-        if prime == 1:
-            prime_list.append(index)
-
-    return prime_list
+    if not as_numbers:
+        return sieve
+    else:
+        return [i for i, x in enumerate(sieve) if x]
