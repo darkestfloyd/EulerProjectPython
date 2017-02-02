@@ -34,18 +34,18 @@ def sum_of_divisors(n, proper_divisors_only=False):
     return sum(get_factors(n, proper_divisors_only, sort=False))
 
 
-def run(n):
-    return
-
-
 MAX = 100000
-abundant_numebrs = set()
+abundant_numbers = set()
 
 for num in range(12, MAX + 1):
     if sum_of_divisors(num) > num:
-        abundant_numebrs.add(num)
+        abundant_numbers.add(num)
 
 t = int(input().strip())
 for counter in range(t):
     n = int(input().strip())
-    run(n)
+    for a in abundant_numbers:
+        if n - a in abundant_numbers:
+            print("YES")
+            exit()
+    print("NO")
