@@ -3,18 +3,18 @@
 # 2. Add all to get sums and mark the corresponding array to being abundant sum
 # 3. The left out are non-abundant, add them
 
-from utils import utils
+from utils import Euler
 
 MAX = 20161  # No number over MAX is abundant
 has_abundant_sum = [1] * MAX
-primes = utils.get_primes(MAX, return_type=1)
+primes = Euler.get_primes(MAX, return_type=1)
 
 
 def is_abundant(n):
     """Checks if a number is abundant or deficient.
     Returns 1 for abundant and 0 for deficient"""
 
-    factors = utils.get_factors(n, with_upper=False, with_1=True)
+    factors = Euler.get_factors(n, with_upper=False, with_1=True)
     if sum(factors) > n:
         # print("sum of factors for", n, sum(factors))
         return True

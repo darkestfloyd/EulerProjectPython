@@ -34,6 +34,28 @@ def get_factors(n, proper_divisors=False):
     return sorted(factors)
 
 
+def sum_of_divisors(n, proper_divisors_only=False):
+    """
+    Returns sum of divisors of n
+
+    :param n: the number
+    :param proper_divisors_only: if True, returns sum of proper divisors
+    """
+    divisor_sum = 0
+    sqrt = int(math.sqrt(n))
+    for num in range(2, sqrt + 1):
+        if n % num == 0:
+            divisor_sum += num + (n // num)
+
+    if sqrt ** 2 == n:
+        divisor_sum -= sqrt
+
+    if proper_divisors_only:
+        return divisor_sum + 1
+    else:
+        return divisor_sum + 1 + n
+
+
 def prime_sieve(n, as_numbers=False):
     """
     Returns primes upto n
