@@ -35,7 +35,7 @@ def get_factors(n, proper_divisors=False, sort=True):
     factors = {1}
     sqrt = int(n ** 0.5)
     start, steps = [3, 2] if n % 2 else [2, 1]
-    for num in range(start, sqrt, steps):
+    for num in range(start, sqrt + 1, steps):
         if n % num == 0:
             factors.add(num)
             factors.add(n // num)
