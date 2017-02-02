@@ -16,20 +16,23 @@ def get_prime_factor(n, primes):
 
 
 def get_factors(n, proper_divisors=False):
-    """Return factors for number n"""
+    """
+    Returns factors of n
 
-    factors = [1]
+    :param n: the number
+    :param proper_divisors: if True, returns only proper factors
+    """
+
+    factors = {1}
     sqrt = int(n ** 0.5)
-    steps = 2 if n % 2 == 1 else 1
-    for num in range(1, sqrt):
-        num += steps
+    start, steps = [3, 2] if n % 2 else [2, 1]
+    for num in range(start, sqrt, steps):
         if n % num == 0:
-            factors.append(num)
-            if num ** 2 != n:
-                factors.append(n // num)
+            factors.add(num)
+            factors.add(n // num)
 
     if not proper_divisors:
-        factors.append(n)
+        factors.add(n)
 
     return sorted(factors)
 
