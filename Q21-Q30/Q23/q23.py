@@ -11,10 +11,6 @@ MAX, SUM = 20161, 0
 
 abundant_numbers = set()
 
-for n in range(1, MAX + 1):
-    if Euler.sum_of_divisors(n, True) > n:
-        abundant_numbers.add(n)
-
 
 def is_abundant_sum(x):
     for a in abundant_numbers:
@@ -23,8 +19,10 @@ def is_abundant_sum(x):
     return False
 
 
-for x in range(1, MAX + 1):
-    if not is_abundant_sum(x):
-        SUM += x
+for n in range(1, MAX + 1):
+    if Euler.sum_of_divisors(n, True) > n:
+        abundant_numbers.add(n)
+    if not is_abundant_sum(n):
+        SUM += n
 
 print(SUM)
