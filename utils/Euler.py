@@ -43,7 +43,8 @@ def sum_of_divisors(n, proper_divisors_only=False):
     """
     divisor_sum = 0
     sqrt = int(math.sqrt(n))
-    for num in range(2, sqrt + 1):
+    start, steps = [3, 2] if n % 2 else [2, 1]
+    for num in range(start, sqrt + 1, steps):
         if n % num == 0:
             divisor_sum += num + (n // num)
 
