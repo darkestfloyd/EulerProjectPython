@@ -56,20 +56,7 @@ def sum_of_divisors(n, proper_divisors_only=False):
     :param n: the number
     :param proper_divisors_only: if True, returns sum of proper divisors
     """
-    divisor_sum = 0
-    sqrt = int(math.sqrt(n))
-    start, steps = [3, 2] if n % 2 else [2, 1]
-    for num in range(start, sqrt + 1, steps):
-        if n % num == 0:
-            divisor_sum += num + (n // num)
-
-    if sqrt ** 2 == n:
-        divisor_sum -= sqrt
-
-    if proper_divisors_only:
-        return divisor_sum + 1
-    else:
-        return divisor_sum + 1 + n
+    return sum(get_factors(n, proper_divisors_only, sort=False))
 
 
 def prime_sieve(n, as_numbers=False):
