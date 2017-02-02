@@ -1,16 +1,24 @@
 import math
 
 
-def get_prime_factor(n, primes):
-    """Returns prime factors of the number n"""
+def get_prime_factors(n):
+    """
+    Returns dictionary of prime factors. {factor: count}
 
-    factors = [1]
-    sqrt = (n ** 0.5) + 1
-    for prime in primes:
-        if prime >= sqrt:
-            break
-        if n % prime == 0:
-            factors.append(prime)
+    :param n: the number
+    """
+
+    temp_n = n
+    factors = dict()
+    sqrt = int(math.sqrt(n))
+    start, steps = [3, 2] if n % 2 else [2, 1]
+    for num in range(start, sqrt + 1, steps):
+        if temp_n % num == 0:
+            count = 0
+            while temp_n % num == 0:
+                temp_n /= num
+                count += 1
+            factors[num] = count
 
     return factors
 
