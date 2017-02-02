@@ -1,3 +1,3 @@
 from utils import Euler as eu
 
-print(eu.get_factors(46953))
+print(eu.sum_of_divisors(45632, True))
