@@ -12,7 +12,9 @@ MAX, SUM = 20161, 0
 abundant_numbers = set()
 
 
-def is_abundant_sum(x):
+def is_abundant_sum(x):  # returns true if a number can be represented by sum of two abundant numbers
+    # if a + b = x. where a and b are abundant numbers
+    # then, x - b = a, thus we subtract x and a and check if b is abundant
     for a in abundant_numbers:
         if x - a in abundant_numbers:
             return True
