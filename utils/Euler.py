@@ -15,12 +15,13 @@ def get_prime_factor(n, primes):
     return factors
 
 
-def get_factors(n, proper_divisors=False):
+def get_factors(n, proper_divisors=False, sort=True):
     """
     Returns factors of n
 
     :param n: the number
     :param proper_divisors: if True, returns only proper factors
+    :param sort: if True, factors are sorted
     """
 
     factors = {1}
@@ -34,7 +35,10 @@ def get_factors(n, proper_divisors=False):
     if not proper_divisors:
         factors.add(n)
 
-    return sorted(factors)
+    if sort:
+        return sorted(factors)
+    else:
+        return factors
 
 
 def sum_of_divisors(n, proper_divisors_only=False):
