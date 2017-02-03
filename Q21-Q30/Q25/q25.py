@@ -1,6 +1,7 @@
-digits = 3
+# answer - 4782
 
-F = [0, 1, 1]
+digits = 1000
+F = [1, 1]
 
 
 def fib(n):
@@ -10,9 +11,9 @@ def fib(n):
 
 
 f = 0
-counter = 3
+counter = 2
 while f < 10 ** (digits - 1):
     f = fib(counter)
     counter += 1
 
-print(F)
+print(counter)
