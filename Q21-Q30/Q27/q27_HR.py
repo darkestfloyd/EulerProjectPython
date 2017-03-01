@@ -1,0 +1,40 @@
+N = int(input().strip())
+
+
+def f(a, b, n):
+    return n ** 2 + a * n + b
+
+
+def is_prime(n):
+    sqrt = int(abs(n) ** 0.5)
+    if n % 2 == 0:
+        return False
+    steps = 2
+    for t in range(3, sqrt + 1, steps):
+        if n % t == 0:
+            return False
+    return True
+
+
+n_a, n_b = 0, 0
+max_prime = 0
+if N % 2 == 0:
+    n_s, n_e = -(N - 1), N + 1
+else:
+    n_s, n_e = -N, N
+for a in range(n_s, n_e, 2):
+    if a == 0:
+        continue
+    for b in range(n_s, n_e, 2):
+        if b == 0:
+            continue
+        if not is_prime(b):
+            continue
+        n = 0
+        while is_prime(f(a, b, n)):
+            n += 1
+        if n > max_prime:
+            max_prime = n
+            n_a, n_b = a, b
+
+print(n_a, n_b)
