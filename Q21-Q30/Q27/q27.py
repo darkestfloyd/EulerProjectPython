@@ -1,3 +1,5 @@
+# answer -  -59231
+
 def f(a, b, n):
     return n ** 2 + a * n + b
 
