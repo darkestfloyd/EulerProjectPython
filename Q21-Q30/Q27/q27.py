@@ -17,11 +17,13 @@ def is_prime(n):
 
 n_a, n_b = 0, 0
 max_prime = 0
-for a in range(-999, 1000):
+for a in range(-999, 1000, 2):
     if a == 0:
         continue
-    for b in range(-1000, 1001):
+    for b in range(-999, 1001, 2):
         if b == 0:
+            continue
+        if not is_prime(b):
             continue
         n = 0
         while is_prime(f(a, b, n)):
