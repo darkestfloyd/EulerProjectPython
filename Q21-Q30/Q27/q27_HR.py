@@ -1,3 +1,5 @@
+# score - 100
+
 pn = 10000
 N = int(input().strip())
 sieve = [True] * pn
