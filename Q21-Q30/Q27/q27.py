@@ -1,18 +1,31 @@
 # answer -  -59231
 
+pn = 10000
+sieve = [True] * pn
 
-def f(a, b, n):
-    return n ** 2 + a * n + b
+
+def get_primes():
+    global sieve
+    sqrt = int(pn ** 0.5)
+    sieve[0] = sieve[1] = False
+    for x in range(2, sqrt + 1):
+        if sieve[x]:
+            for t in range(x * x, pn, x):
+                sieve[t] = False
+    return [x for x in range(pn) if sieve[x]]
+
+
+primes = get_primes()
 
 
 def is_prime(n):
-    sqrt = int(abs(n) ** 0.5)
-    if n % 2 == 0:
-        return False
-    steps = 2
-    for t in range(3, sqrt + 1, steps):
+    global sieve
+    if n < 10000:
+        return sieve[n]
+    for t in primes:
         if n % t == 0:
             return False
+    primes.append(n)
     return True
 
 
@@ -27,7 +40,7 @@ for a in range(-999, 1000, 2):
         if not is_prime(b):
             continue
         n = 0
-        while is_prime(f(a, b, n)):
+        while is_prime(abs(n ** 2 + a * n + b)):
             n += 1
         if n > max_prime:
             max_prime = n
