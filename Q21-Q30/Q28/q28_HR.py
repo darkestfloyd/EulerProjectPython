@@ -2,9 +2,9 @@ t = int(input().strip())
 
 for _ in range(t):
     n = int(input().strip())
-    _sum = 1
+    n //= 2
 
-    for x in range(1, ((n - 1) // 2) + 1):
-        _sum += 4 * (2 * x + 1) ** 2 - 12 * x
+    prod = 16 * n ** 3 + 30 * n ** 2 + 26 * n + 3
+    prod //= 3
 
-    print(_sum % 1000000007)
+    print(round(prod) % 1000000007)
