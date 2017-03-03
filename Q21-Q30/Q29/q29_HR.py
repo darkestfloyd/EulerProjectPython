@@ -1,3 +1,5 @@
+# score - 45
+
 powers = set()
 
 n_min, n_max = 2, int(input().strip())
